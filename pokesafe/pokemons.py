@@ -1,12 +1,13 @@
 """Detail how to retrieve Pokemons."""
-from pokesafe.api import get_pokemon_details
+from pokesafe.api import get_pokemon_details, get_pokemon_urls
 from pokesafe.models import Pokemon
 
 
 def catch_pokemons() -> None:
     """Catch Pokemons from API and store them in database."""
-    for pokemon_to_catch in ["pokemon/3", "pokemon/2"]:
-        pokemon_details = get_pokemon_details(pokemon_to_catch)
+    for url in get_pokemon_urls():
+        print(f"> querying {url}")
+        pokemon_details = get_pokemon_details(url)
         Pokemon.objects.update_or_create(**pokemon_details)
 
 

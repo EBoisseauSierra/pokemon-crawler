@@ -16,4 +16,5 @@
     <form action="{% url 'catch_them_all' %}" method="post">{% csrf_token %}
         <input type="submit" value="Catch them all!">
     </form>
+    <p><b>Note:</b> For a fair use of Poke API (and import UX while waiting for async implementation), only the first 200 Pokemons will be fetched.</p>
 {% endif %}
