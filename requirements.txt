@@ -3,4 +3,5 @@ dj_static
 Django>=3.0,<4.0
 gunicorn
 psycopg2-binary>=2.8
+requests
 whitenoise>=6.0,<7.0
