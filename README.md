@@ -10,6 +10,11 @@ Some useful commands:
 
 ## Quickstart
 
+```shell
+docker-compose up -d
+docker-compose exec web python manage.py migrate
+```
+
 ## Development
 
 1. (recommended) Set up a virtual environment:
@@ -29,4 +34,11 @@ Run tests:
 
 ```shell
 docker-compose exec web python manage.py test
+```
+
+Update model
+
+```shell
+docker-compose up -d
+docker-compose exec web python manage.py makemigrations pokesafe
 ```
