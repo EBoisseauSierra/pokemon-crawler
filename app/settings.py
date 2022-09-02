@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["0.0.0.0"] if DEBUG else []
 # Application definition
 
 INSTALLED_APPS = [
+    "pokesafe.apps.PokesafeConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

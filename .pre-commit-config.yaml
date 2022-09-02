@@ -16,7 +16,7 @@ repos:
     rev: 5.1.1
     hooks:
       - id: pydocstyle
-        exclude: ^tests/ # do not force detailed docstrings in tests
+        exclude: (tests/|.*migrations/|.*test.py)
         args: [--convention=pep257]
   - repo: https://github.com/pycqa/isort
     rev: 5.7.0
@@ -28,10 +28,12 @@ repos:
     hooks:
       - id: black
         args: [-l 79]
+        exclude: .*migrations/ # don't format auto-generated migrations
   - repo: https://gitlab.com/pycqa/flake8
     rev: 3.8.4
     hooks:
       - id: flake8
+        exclude: .*migrations/ # don't format auto-generated migrations
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v1.2.0
     hooks:
