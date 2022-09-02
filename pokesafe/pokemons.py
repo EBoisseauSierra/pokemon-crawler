@@ -8,3 +8,8 @@ def catch_pokemon() -> None:
     for pokemon_to_catch in ["pokemon/3", "pokemon/2"]:
         pokemon_details = get_pokemon_details(pokemon_to_catch)
         Pokemon.objects.update_or_create(**pokemon_details)
+
+
+def clear_pokemons() -> None:
+    """Clear previously caught Pokemons."""
+    Pokemon.objects.all().delete()

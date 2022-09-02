@@ -12,13 +12,14 @@ import os
 from dj_static import Cling
 from django.core.wsgi import get_wsgi_application
 
-from pokesafe.catch_pokemon import catch_pokemon
+import pokesafe.pokemons as pokemons
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "app.settings")
 port = int(os.environ.get("PORT", 8000))
 
 
-# initialize db by load a couple Pokemons
-catch_pokemon()
+# Initialize db
+pokemons.clear_pokemons()  # Ensure we don't track legacy records
+pokemons.catch_pokemon()
 
 application = Cling(get_wsgi_application())
