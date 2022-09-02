@@ -1,12 +1,7 @@
-# Pokemon Crawler
+# PokeSafe
 
-Project started from https://docs.docker.com/compose/django/
-
-Some useful commands:
-
-* `docker-compose up`
-* `docker-compose exec web bash`
-* `docker-compose exec web python -m pip install -r requirements.txt`
+A live version of the project is accessible at [pokesafe.herokuapp.com](https://pokesafe.herokuapp.com/).
+(Note that — because of free Dynos — it might take a little while to load if the app is asleep.)
 
 ## Quickstart
 
