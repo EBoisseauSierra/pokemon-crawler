@@ -2,6 +2,8 @@
 
 import requests
 
+from .models import Move
+
 API_BASE_URL = "https://pokeapi.co/api/v2"
 POKEMON_DETAILS_API = "pokemon"
 
@@ -10,10 +12,23 @@ def get_pokemon_details(pokemon_url: str) -> dict:
     """Return details of a Pokemon based on a Pokemon ID."""
     api_response = requests.get(pokemon_url).json()
 
+    base_experience = api_response.get("base_experience")
+    height = api_response.get("height")
+    is_default = api_response.get("is_default")
     name = api_response.get("name")
     weight = api_response.get("weight")
+    first_move, created = Move.objects.get_or_create(
+        name=api_response.get("moves")[0].get("move").get("name")
+    )
 
-    return {"name": name, "weight": int(weight)}
+    return {
+        "base_experience": base_experience,
+        "height": int(height),
+        "is_default": bool(is_default),
+        "name": name,
+        "weight": int(weight),
+        "first_move": first_move,
+    }
 
 
 def get_pokemon_urls(batch_size=100, max_query=2) -> list[str]:
