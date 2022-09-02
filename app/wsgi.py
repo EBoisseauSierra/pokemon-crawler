@@ -13,5 +13,7 @@ from dj_static import Cling
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "app.settings")
+port = int(os.environ.get("PORT", 8000))
+
 
 application = Cling(get_wsgi_application())
