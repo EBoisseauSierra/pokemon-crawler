@@ -6,7 +6,7 @@ from django.db import models
 class Pokemon(models.Model):
     """List the details of a given Pokemon."""
 
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
     weight = models.IntegerField()
 
     def greet(self) -> str:
