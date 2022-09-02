@@ -22,6 +22,6 @@ port = int(os.environ.get("PORT", 8000))
 # initialize db by load a couple Pokemons
 for pokemon_to_catch in ["pokemon/3", "pokemon/2"]:
     pokemon_details = get_pokemon_details(pokemon_to_catch)
-    Pokemon(**pokemon_details).save()
+    Pokemon.objects.update_or_create(**pokemon_details)
 
 application = Cling(get_wsgi_application())
