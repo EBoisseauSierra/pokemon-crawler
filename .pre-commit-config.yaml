@@ -16,7 +16,7 @@ repos:
     rev: 5.1.1
     hooks:
       - id: pydocstyle
-        exclude: (tests/|.*migrations/|.*test.py)
+        exclude: (tests/|.*migrations/|.*tests.py)
         args: [--convention=pep257]
   - repo: https://github.com/pycqa/isort
     rev: 5.7.0
