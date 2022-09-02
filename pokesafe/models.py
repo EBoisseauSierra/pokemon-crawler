@@ -3,11 +3,21 @@
 from django.db import models
 
 
+class Move(models.Model):
+    """Represent a given 'move' of a Pokemon."""
+
+    name = models.CharField(max_length=200)
+
+
 class Pokemon(models.Model):
     """List the details of a given Pokemon."""
 
     name = models.CharField(max_length=200, unique=True)
-    weight = models.IntegerField()
+    base_experience = models.IntegerField(default=None)
+    height = models.IntegerField(default=None)
+    weight = models.IntegerField(default=None)
+    is_default = models.BooleanField(default=None)
+    first_move = models.ForeignKey(Move, on_delete=models.CASCADE, default="")
 
     def greet(self) -> str:
         """
