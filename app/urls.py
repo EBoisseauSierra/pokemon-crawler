@@ -22,5 +22,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.pokemon_lists, name="pokemon_list"),
     path("populate_pokemon/", views.populate_pokemons, name="catch_them_all"),
+    path("clear_pokemons/", views.drop_pokemons, name="release_them_all"),
     path("<str:pokemon_name>/", views.pokemon, name="pokemon_details"),
 ]

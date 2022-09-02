@@ -3,7 +3,7 @@
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 
 from .models import Pokemon
-from .pokemons import catch_pokemons
+from .pokemons import catch_pokemons, clear_pokemons
 
 
 def pokemon_lists(request):
@@ -24,4 +24,11 @@ def populate_pokemons(request):
     """Catch all Pokemons and return to homepage."""
     if request.method == "POST":
         catch_pokemons()
+    return redirect(reverse("pokemon_list"))
+
+
+def drop_pokemons(request):
+    """Catch all Pokemons and return to homepage."""
+    if request.method == "POST":
+        clear_pokemons()
     return redirect(reverse("pokemon_list"))

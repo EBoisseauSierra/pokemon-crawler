@@ -5,7 +5,14 @@
         <li><a href="{% url 'pokemon_details' pokemon.name %}">{{ pokemon.name }}</a></li>
     {% endfor %}
     </ul>
+    <form action="{% url 'catch_them_all' %}" method="post">{% csrf_token %}
+        <input type="submit" value="Refresh Pokemons">
+    </form>
+    <form action="{% url 'release_them_all' %}" method="post">{% csrf_token %}
+        <input type="submit" value="Delete all Pokemons">
+    </form>
 {% else %}
+    <p>You have no Pokemon in your Pokesafe.</p>
     <form action="{% url 'catch_them_all' %}" method="post">{% csrf_token %}
         <input type="submit" value="Catch them all!">
     </form>
