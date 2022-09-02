@@ -1,0 +1,20 @@
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  heroku_git_deploy_job:
+    runs-on: ubuntu-latest
+    name: Git Deploy job- A job to deploy Django app to Heroku using Git
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Deploy django to heroku
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_email: "etienne.boisseau@gmail.com"
+          branch: main
+          usedocker: true
+          docker_heroku_process_type: web
