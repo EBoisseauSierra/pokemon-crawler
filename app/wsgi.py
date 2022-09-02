@@ -20,6 +20,6 @@ port = int(os.environ.get("PORT", 8000))
 
 # Initialize db
 pokemons.clear_pokemons()  # Ensure we don't track legacy records
-pokemons.catch_pokemon()
+# pokemons.catch_pokemon()
 
 application = Cling(get_wsgi_application())

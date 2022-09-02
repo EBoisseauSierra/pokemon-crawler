@@ -6,5 +6,7 @@
     {% endfor %}
     </ul>
 {% else %}
-    <p>No Pokemon are referenced yet.</p>
+    <form action="{% url 'catch_them_all' %}" method="post">{% csrf_token %}
+        <input type="submit" value="Catch them all!">
+    </form>
 {% endif %}
