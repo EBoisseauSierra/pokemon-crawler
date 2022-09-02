@@ -8,6 +8,10 @@ class Move(models.Model):
 
     name = models.CharField(max_length=200)
 
+    def __repr__(self):
+        """Provide a human-readable representation of the object."""
+        return f"<Move({self.name})>"
+
 
 class Pokemon(models.Model):
     """List the details of a given Pokemon."""
@@ -31,3 +35,15 @@ class Pokemon(models.Model):
             if self.weight is not None
             else f"Hi, my name is {self.name}!"
         )
+
+    def __repr__(self):
+        """Provide a human-readable representation of the object."""
+        args = [
+            self.name,
+            self.base_experience,
+            self.height,
+            self.weight,
+            self.is_default,
+            self.first_move,
+        ]
+        return f"<Pokemon({','.join(args)})>"

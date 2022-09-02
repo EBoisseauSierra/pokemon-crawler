@@ -2,6 +2,8 @@
 
 import requests
 
+from .models import Move
+
 API_BASE_URL = "https://pokeapi.co/api/v2"
 POKEMON_DETAILS_API = "pokemon"
 
@@ -15,6 +17,9 @@ def get_pokemon_details(pokemon_url: str) -> dict:
     is_default = api_response.get("is_default")
     name = api_response.get("name")
     weight = api_response.get("weight")
+    first_move, created = Move.objects.get_or_create(
+        name=api_response.get("moves")[0].get("move").get("name")
+    )
 
     return {
         "base_experience": base_experience,
@@ -22,6 +27,7 @@ def get_pokemon_details(pokemon_url: str) -> dict:
         "is_default": bool(is_default),
         "name": name,
         "weight": int(weight),
+        "first_move": first_move,
     }
 
 
