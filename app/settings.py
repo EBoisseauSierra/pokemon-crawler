@@ -29,9 +29,10 @@ MAX_CONN_AGE = 600
 SECRET_KEY = "bz_=v_sn7ubj7mbg)016fgyok0c1x8(8@6+34&c!*jkw3u0r*g"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if not IS_HEROKU else False
+# DEBUG = True if not IS_HEROKU else False
+DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0"] if DEBUG else ["pokesafe.herokuapp.com"]
+ALLOWED_HOSTS = ["0.0.0.0"] if not IS_HEROKU else ["pokesafe.herokuapp.com"]
 
 
 # Application definition
@@ -134,6 +135,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = "/static/"
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 # Enable WhiteNoise's GZip compression of static assets.
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
