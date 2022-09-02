@@ -1,0 +1,26 @@
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#pokemon_list {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    width: min(80vw, 600px);
+    list-style-type: none;
+}
+
+.pokemon-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #428e89;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    height: 5ex;
+    border-radius: 1ex;
+}
+.pokemon-link {
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
