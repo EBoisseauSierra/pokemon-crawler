@@ -2,7 +2,7 @@
 {% if pokemons %}
     <ul>
     {% for pokemon in pokemons %}
-        <li><a href="/{{ pokemon.name }}/">{{ pokemon.name }}</a></li>
+        <li><a href="{% url 'pokemon_details' pokemon.name %}">{{ pokemon.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

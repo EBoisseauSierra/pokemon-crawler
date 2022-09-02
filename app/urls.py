@@ -21,5 +21,5 @@ from pokesafe import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.pokemon_lists, name="pokemon_list"),
-    path("<str:pokemon_name>/", views.pokemon, name="pokemon"),
+    path("<str:pokemon_name>/", views.pokemon, name="pokemon_details"),
 ]
