@@ -1,5 +1,7 @@
 """Define the views of our data."""
 
+import base64
+
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 
 from .models import Pokemon
@@ -32,3 +34,12 @@ def drop_pokemons(request):
     if request.method == "POST":
         clear_pokemons()
     return redirect(reverse("pokemon_list"))
+
+
+def egg(request):
+    """Explain why CybSafe should hire me."""
+    follow_me = (
+        b"aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUSZ0PTQzcw=="
+    )
+    feeling_lucky = base64.b64decode(follow_me).decode("ascii")
+    return render(request, "pokesafe/42.html", {"url": feeling_lucky})
